@@ -42,7 +42,7 @@ add_filter( 'cmb2_meta_boxes', 'cmb2_sample_metaboxes' );
 function cmb2_sample_metaboxes( array $meta_boxes ) {
 
     // Start with an underscore to hide fields from custom fields list
-    $prefix = '_onepage_';
+    $prefix = 'onepage_';
 
     /**
      * Sample metabox to demonstrate each field type included
@@ -88,9 +88,9 @@ function cmb2_sample_metaboxes( array $meta_boxes ) {
                 'type' => 'checkbox',
             ),
             array(
-                'name' => __( 'Nouvelle page', 'cmb2' ),
-                'desc' => __( 'Cocher pour ouvrir dans une nouvelle page', 'cmb2' ),
-                'id'   => $prefix . 'disable_title',
+                'name' => __( 'One Page', 'cmb2' ),
+                'desc' => __( 'Cocher pour afficher cet article sur la one page', 'cmb2' ),
+                'id'   => $prefix . 'new_page',
                 'type' => 'checkbox',
             ),
             array(
@@ -101,9 +101,9 @@ function cmb2_sample_metaboxes( array $meta_boxes ) {
                 'default' => '#efefef'
             ),
             array(
-                'name'    => __( 'Test Select', 'cmb2' ),
-                //'desc'    => __( 'field description (optional)', 'cmb2' ),
-                'id'      => $prefix . 'test_select',
+                'name'    => __( 'Type', 'cmb2' ),
+                'desc'    => __( 'Type de section', 'cmb2' ),
+                'id'      => $prefix . 'type',
                 'type'    => 'select',
                 'options' => array(
                     'standard' => __( 'Standard', 'cmb2' ),
