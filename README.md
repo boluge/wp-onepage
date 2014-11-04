@@ -1,4 +1,4 @@
 wp-onepage
 ==========
 
-Blak theme One page wordpress
+Blank theme One page wordpress
