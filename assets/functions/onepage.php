@@ -98,7 +98,7 @@ function cmb2_sample_metaboxes( array $meta_boxes ) {
                 'desc'    => __( 'Couleur d\'arrière plan de la section', 'cmb2' ),
                 'id'      => $prefix . 'section_bg',
                 'type'    => 'colorpicker',
-                'default' => '#efefef'
+                'default' => '#f4f5f6'
             ),
             array(
                 'name'    => __( 'Type', 'cmb2' ),
