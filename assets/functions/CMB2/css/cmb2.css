@@ -739,7 +739,7 @@ Post Metaboxes
 
 .postbox-container .cmb2-wrap > .cmb-field-list > .cmb-row
 {
-    padding: 1.8em 0;
+    padding: .8em 0;
 }
 
 /* line 16, sass/partials/_post_metaboxes.scss */
@@ -753,7 +753,7 @@ Post Metaboxes
 
 .postbox-container .cmb-row
 {
-    padding: 0 0 1.8em;
+    padding: 0 0 .8em;
 }
 
 /* line 26, sass/partials/_post_metaboxes.scss */
@@ -813,14 +813,6 @@ Post Metaboxes
     float: right;
 
     width: 80%;
-}
-
-/* line 62, sass/partials/_post_metaboxes.scss */
-
-.postbox-container .cmb-row,
-.postbox-container .cmb-repeatable-group
-{
-    border-bottom: 1px solid #e9e9e9;
 }
 
 /* line 71, sass/partials/_post_metaboxes.scss */
@@ -3269,4 +3261,3 @@ Sidebar Placement Adjustments
         border-bottom: 0;
     }
 }
-
