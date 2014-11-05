@@ -57,6 +57,11 @@ function cmb2_sample_metaboxes( array $meta_boxes ) {
         // 'cmb_styles' => true, // Enqueue the CMB stylesheet on the frontend
         'fields'        => array(
             array(
+                'name' => __( 'Affichage de la page', 'cmb2' ),
+                'id'   => $prefix . 'page',
+                'type' => 'title',
+            ),
+            array(
                 'name'       => __( 'Test Text', 'cmb2' ),
                 'desc'       => __( 'field description (optional)', 'cmb2' ),
                 'id'         => $prefix . 'test_text',
@@ -94,11 +99,22 @@ function cmb2_sample_metaboxes( array $meta_boxes ) {
                 'type' => 'checkbox',
             ),
             array(
+                'name' => __( 'Arière plan de la page', 'cmb2' ),
+                'id'   => $prefix . 'bg',
+                'type' => 'title',
+            ),
+            array(
                 'name'    => __( 'Page section background', 'cmb2' ),
                 'desc'    => __( 'Couleur d\'arrière plan de la section', 'cmb2' ),
                 'id'      => $prefix . 'section_bg',
                 'type'    => 'colorpicker',
                 'default' => '#f4f5f6'
+            ),
+            array(
+                'name' => __( 'Background URL', 'cmb2' ),
+                'desc'    => __( 'Image d\'arrière plan de la section', 'cmb2' ),
+                'id'   => $prefix . 'url_bg',
+                'type' => 'file',
             ),
             array(
                 'name'    => __( 'Type', 'cmb2' ),
@@ -109,6 +125,11 @@ function cmb2_sample_metaboxes( array $meta_boxes ) {
                     'standard' => __( 'Standard', 'cmb2' ),
                     'parallax'   => __( 'Parallax', 'cmb2' )
                 ),
+            ),
+            array(
+                'name' => __( 'Paramètres parallax', 'cmb2' ),
+                'id'   => $prefix . 'parallax',
+                'type' => 'title',
             ),
             array(
                 'name'    => __( 'Scroll Speed', 'cmb2' ),
@@ -133,12 +154,7 @@ function cmb2_sample_metaboxes( array $meta_boxes ) {
                     '1.5' => __( '1.5', 'cmb2' ),
                 ),
             ),
-            array(
-                'name' => __( 'Background URL', 'cmb2' ),
-                'desc'    => __( 'Image d\'arrière plan de la section', 'cmb2' ),
-                'id'   => $prefix . 'url_bg',
-                'type' => 'file',
-            ),
+
             array(
                 'name'    => __( 'Affichage parallax', 'cmb2' ),
                 'desc'    => __( 'Affichage de l\'image pour l\'effet parallax', 'cmb2' ),
@@ -148,6 +164,11 @@ function cmb2_sample_metaboxes( array $meta_boxes ) {
                     'standard' => __( 'Standard', 'cmb2' ),
                     'fullscreen'   => __( 'Plein écran', 'cmb2' )
                 ),
+            ),
+            array(
+                'name' => __( 'Paramètres sans parallax', 'cmb2' ),
+                'id'   => $prefix . 'noparallax',
+                'type' => 'title',
             ),
             array(
                 'name'    => __( 'Affichage Standard', 'cmb2' ),
@@ -160,6 +181,22 @@ function cmb2_sample_metaboxes( array $meta_boxes ) {
                     'fullwidth'   => __( 'Pleine largeur', 'cmb2' ),
                     'mosaique'   => __( 'Mosaique', 'cmb2' )
                 ),
+            ),
+            array(
+                'name' => __( 'Paramètres de navigation', 'cmb2' ),
+                'id'   => $prefix . 'navig',
+                'type' => 'title',
+            ),
+            array(
+                'name'    => __( 'Test Multi Checkbox', 'cmb2' ),
+                'desc'    => __( 'field description (optional)', 'cmb2' ),
+                'id'      => $prefix . 'navigation_page',
+                'type'    => 'multicheck',
+                'options' => array(
+                    'haut' => __( 'En haut', 'cmb2' ),
+                    'bas' => __( 'En bas', 'cmb2' ),
+                ),
+                // 'inline'  => true, // Toggles display to inline
             ),
         ),
     );
