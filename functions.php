@@ -84,9 +84,9 @@ function bootblank_header_scripts()
 // Load BootBlank conditional scripts
 function bootblank_conditional_scripts()
 {
-    if (is_page('pagenamehere')) {
-        wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
-        wp_enqueue_script('scriptname'); // Enqueue it!
+    if ( is_front_page() ) {
+        wp_register_script('parallax', get_template_directory_uri() . '/assets/js/app.min.js', array(), '1.0.0'); // Conditional script(s)
+        wp_enqueue_script('parallax'); // Enqueue it!
     }
 }
 
@@ -300,7 +300,7 @@ function bootblankcomments($comment, $args, $depth)
 
 // Add Actions
 add_action('init', 'bootblank_header_scripts'); // Add Custom Scripts to wp_head
-// add_action('wp_print_scripts', 'bootblank_conditional_scripts'); // Add Conditional Page Scripts
+add_action('wp_print_scripts', 'bootblank_conditional_scripts'); // Add Conditional Page Scripts
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'bootblank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_bootblank_menu'); // Add BootBlank Menu

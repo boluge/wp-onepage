@@ -19,9 +19,7 @@
     "gridlover-mixin": "https://github.com/sevenupcan/gridlover-mixin.git",
     "jquery-cookie": "~1.4.1",
     "bourbon": "~4.0.2",
-    "normalize.css": "~3.0.1"
-  },
-  "devDependencies": {
+    "normalize.css": "~3.0.1",
     "jQuery-Parallax": "https://github.com/IanLunn/jQuery-Parallax.git"
   }
 }

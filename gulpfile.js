@@ -38,15 +38,14 @@ gulp.task('coffee', function() {
 
 });
 
-gulp.task('slide', function() {
+gulp.task('jsfp', function() {
 	return gulp.src([
-		'assets/ext_libs/sly/dist/sly.min.js',
-		'assets/js/plugins.js',
-		'assets/js/horizontal.js',
-		'assets/js/grid.js'
+		'assets/ext_libs/jQuery-Parallax/scripts/jquery.parallax-1.1.3.js',
+		'assets/ext_libs/jQuery-Parallax/scripts/jquery.localscroll-1.2.7-min.js',
+		'assets/ext_libs/jQuery-Parallax/scripts/jquery.scrollTo-1.4.2-min.js',
 	])
 		.pipe(plumber())
-		.pipe(concat('plugins.min.js'))
+		.pipe(concat('app.min.js'))
 		.pipe(plumber.stop())
 		.pipe(gulp.dest('assets/js/'))
 		.pipe(notify("JS: <%= file.relative %>!"))
@@ -57,7 +56,7 @@ gulp.task('slide', function() {
 		.pipe(notify("Js min: <%= file.relative %>!"));
 });
 
-gulp.task('js', ['slide','coffee'], function() {
+gulp.task('js', ['jsfp','coffee'], function() {
 	return gulp.src([
 		'assets/ext_libs/jquery/dist/jquery.min.js',
 		//'assets/ext_libs/conditionizr/src/conditionizr.js',
@@ -81,6 +80,13 @@ gulp.task('js', ['slide','coffee'], function() {
 
 gulp.task('uglify', ['js'], function() {
 	gulp.src('assets/js/script.min.js')
+		.pipe(plumber())
+		.pipe(uglify())
+		.pipe(plumber.stop())
+		.pipe(gulp.dest('js'))
+		.pipe(notify("Js min: <%= file.relative %>!"));
+
+	gulp.src('assets/js/frontpage.min.js')
 		.pipe(plumber())
 		.pipe(uglify())
 		.pipe(plumber.stop())
