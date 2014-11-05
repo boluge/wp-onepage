@@ -13,12 +13,19 @@
 		),
 	);
 
-	$numPage= 0;
+
 
 	$pages = new WP_Query($args);
 
 	// Tableau qui va stocker les id des section qui utilisent l'effets parallax
 	$parallaxId = array();
+	$numPage= 0;
+	$nbPages = count( $pages->posts )+1;
+
+	// echo '<pre>';
+	// 	print_r($pages);
+	// echo '</pre>';
+
 
 	while ( $pages->have_posts() ) : $pages->the_post();
 
@@ -33,23 +40,38 @@
 		$bg_color 		= get_post_meta( $post->ID, 'onepage_section_bg', true );
 		$bg_img		= get_post_meta( $post->ID, 'onepage_url_bg', true );
 		$img_standard		= get_post_meta( $post->ID, 'onepage_img_standard', true );
-		$nav_page		= get_post_meta( $post->ID, 'onepage_navigation_page', true );
+		$navpage		= get_post_meta( $post->ID, 'onepage_navigation_page', true );
 
-		var_dump($nav_page);
+		// var_dump($navpage);
 
+		if( empty( $bg_color ) ){ $bg_color= '#f4f5f6'; }
 
-		if( empty( $bg_color) ){ $bg_color= '#f4f5f6'; }
+		$numPage++;
+
+		$currentPage = $post->menu_order -1;
+		if ($numPage != 1) {
+			$navTop = $pages->posts[$currentPage-1]->post_name;
+		}
+		if ($numPage != $nbPages) {
+			$navBottom = $pages->posts[$currentPage+1]->post_name;
+		}
 	?>
 
+
+
 		<?php if ( $page_type == 'standard' ): ?>
-			<?php	$numPage++;  ?>
 
-				<?php if (empty($bg_img)): ?>
-					<article id="<?php echo $post->post_name; ?>" class="onepage_page onepage_<?php echo $post->post_name ?>" style="background-color: <?php echo $bg_color ?>;">
-				<?php else: ?>
-					<article id="<?php echo $post->post_name; ?>" class="onepage_img onepage_page onepage_<?php echo $img_standard; ?> onepage_<?php echo $post->post_name ?>" style="background-color: <?php echo $bg_color ?>; background-image:url('<?php if(isset($bg_img)) echo $bg_img;?>');">
+			<?php if (empty($bg_img)): ?>
+				<article id="<?php echo $post->post_name; ?>" class="onepage_page onepage_<?php echo $post->post_name ?>" style="background-color: <?php echo $bg_color ?>;">
+			<?php else: ?>
+				<article id="<?php echo $post->post_name; ?>" class="onepage_img onepage_page onepage_<?php echo $img_standard; ?> onepage_<?php echo $post->post_name ?>" style="background-color: <?php echo $bg_color ?>; background-image:url('<?php if(isset($bg_img)) echo $bg_img;?>');">
+			<?php endif; ?>
+
+				<?php if ( $numPage != 1 && !empty($navpage[0]) ) : ?>
+					<div class="onepage_scroll">
+						<a class="top" href="#<?php echo $navTop; ?>">Top</a>
+					</div>
 				<?php endif; ?>
-
 
 				<div class="container">
 					<?php if($no_title != 'on'): ?>
@@ -75,13 +97,27 @@
 
 					<?php the_content(); ?>
 				</div>
+
+				<?php if ( $numPage != $nbPages && !empty($navpage[1]) ) : ?>
+					<div class="onepage_scroll">
+						<a class="bottom" href="#<?php echo $navBottom; ?>">Bottom</a>
+					</div>
+				<?php endif; ?>
+
+				<?php $slug = $post->post_name; ?>
 			</article>
 		<?php elseif ($page_type == 'parallax'): ?>
+			<?php	$numPage++;  ?>
+
 			<?php array_push($parallaxId,  '$("#'.$post->post_name.'").parallax("50%", '. $scroll_speed .');'); ?>
-			<?php
-				list($width, $height, $type, $attr) = getimagesize($bg_img);
-			?>
+			<?php list($width, $height, $type, $attr) = getimagesize($bg_img); ?>
 			<article data-img-width="<?php echo $width; ?>" data-img-height="<?php echo $height; ?>" id="<?php echo $post->post_name; ?>" class="parallax onepage_page <?php echo $img_parallax; ?> onepage_<?php echo $post->post_name ?>" style="background-color: <?php echo $bg_color ?>; background-image:url('<?php if(isset($bg_img)) echo $bg_img;?>');">
+				<?php if ( $numPage != 1 && !empty($navpage[0]) ) : ?>
+					<div class="onepage_scroll">
+						<a class="top" href="#<?php echo $navTop; ?>">Top</a>
+					</div>
+				<?php endif; ?>
+
 				<div class="container">
 					<?php if($no_title != 'on'): ?>
 						<?php if($alt_title): ?>
@@ -97,6 +133,13 @@
 
 					<?php the_content(); ?>
 				</div>
+				<?php if ( $numPage != $nbPages && !empty($navpage[1]) ) : ?>
+					<div class="onepage_scroll">
+						<a class="bottom" href="#<?php echo $navBottom; ?>">Bottom</a>
+					</div>
+				<?php endif; ?>
+
+				<?php $slug = $post->post_name; ?>
 			</article>
 		<?php endif ?>
 	<?php endwhile; ?>
@@ -108,9 +151,8 @@
 	 		$output .='<script type="text/javascript">';
 	 		$output .='jQuery(document).ready(function($) {';
 			$output .='$(window).load(function(){';
-			$output .= "$('.nav ul').localScroll({
-           target:'body'
-        });";
+			$output .= "$('.nav ul').localScroll({ target:'body' });";
+			$output .= "$('.onepage_scroll').localScroll({ target:'body' });";
 
 			foreach( $parallaxId as $parallax ) {
 				$output .= $parallax;
