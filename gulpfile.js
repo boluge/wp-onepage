@@ -43,6 +43,7 @@ gulp.task('jsfp', function() {
 		'assets/ext_libs/jQuery-Parallax/scripts/jquery.parallax-1.1.3.js',
 		'assets/ext_libs/jquery.localScroll/jquery.localScroll.js',
 		'assets/ext_libs/jquery.scrollTo/jquery.scrollTo.js',
+		'assets/js/SmoothScroll.js',
 	])
 		.pipe(plumber())
 		.pipe(concat('app.min.js'))
