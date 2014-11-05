@@ -188,8 +188,8 @@ function cmb2_sample_metaboxes( array $meta_boxes ) {
                 'type' => 'title',
             ),
             array(
-                'name'    => __( 'Test Multi Checkbox', 'cmb2' ),
-                'desc'    => __( 'field description (optional)', 'cmb2' ),
+                'name'    => __( 'Navigation', 'cmb2' ),
+                'desc'    => __( 'Bouton de navigation entre les pages', 'cmb2' ),
                 'id'      => $prefix . 'navigation_page',
                 'type'    => 'multicheck',
                 'options' => array(

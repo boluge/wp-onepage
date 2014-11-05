@@ -12,6 +12,9 @@
 			),
 		),
 	);
+
+	$numPage= 0;
+
 	$pages = new WP_Query($args);
 
 	// Tableau qui va stocker les id des section qui utilisent l'effets parallax
@@ -30,22 +33,39 @@
 		$bg_color 		= get_post_meta( $post->ID, 'onepage_section_bg', true );
 		$bg_img		= get_post_meta( $post->ID, 'onepage_url_bg', true );
 		$img_standard		= get_post_meta( $post->ID, 'onepage_img_standard', true );
+		$nav_page		= get_post_meta( $post->ID, 'onepage_navigation_page', true );
+
+		var_dump($nav_page);
+
+
 		if( empty( $bg_color) ){ $bg_color= '#f4f5f6'; }
 	?>
 
 		<?php if ( $page_type == 'standard' ): ?>
-			<?php if (empty($bg_img)): ?>
-				<article id="<?php echo $post->post_name; ?>" class="onepage_page onepage_<?php echo $post->post_name ?>" style="background-color: <?php echo $bg_color ?>;">
-			<?php else: ?>
-				<article id="<?php echo $post->post_name; ?>" class="onepage_img onepage_page onepage_<?php echo $img_standard; ?> onepage_<?php echo $post->post_name ?>" style="background-color: <?php echo $bg_color ?>; background-image:url('<?php if(isset($bg_img)) echo $bg_img;?>');">
-			<?php endif; ?>
+			<?php	$numPage++;  ?>
+
+				<?php if (empty($bg_img)): ?>
+					<article id="<?php echo $post->post_name; ?>" class="onepage_page onepage_<?php echo $post->post_name ?>" style="background-color: <?php echo $bg_color ?>;">
+				<?php else: ?>
+					<article id="<?php echo $post->post_name; ?>" class="onepage_img onepage_page onepage_<?php echo $img_standard; ?> onepage_<?php echo $post->post_name ?>" style="background-color: <?php echo $bg_color ?>; background-image:url('<?php if(isset($bg_img)) echo $bg_img;?>');">
+				<?php endif; ?>
+
 
 				<div class="container">
 					<?php if($no_title != 'on'): ?>
-						<?php if($alt_title): ?>
-							<h2 class="onepage_title"><?php  echo $alt_title; ?></h2>
+
+						<?php if ($numPage == 1) : ?>
+							<?php if($alt_title): ?>
+								<h1 class="onepage_title"><?php  echo $alt_title; ?></h2>
+							<?php else: ?>
+								<h1 class="onepage_title"><?php  the_title(); ?></h2>
+							<?php endif; ?>
 						<?php else: ?>
-							<h2 class="onepage_title"><?php  the_title(); ?></h2>
+							<?php if($alt_title): ?>
+								<h2 class="onepage_title"><?php  echo $alt_title; ?></h2>
+							<?php else: ?>
+								<h2 class="onepage_title"><?php  the_title(); ?></h2>
+							<?php endif; ?>
 						<?php endif; ?>
 
 						<?php if($subtitle): ?>
