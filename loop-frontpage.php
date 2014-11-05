@@ -164,3 +164,6 @@
 			echo $output;
 		}
 	?>
+
+	<div class="scroll" id="scroll" style="display: block;"><a href="#">Top</a></div>
+	<script></script>
