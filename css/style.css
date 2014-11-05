@@ -42,13 +42,44 @@ img.alignright {
   background-attachment: fixed;
   background-size: 100% auto;
   min-height: 100%; }
+  /* line 67, ../assets/sass/style.sass */
+  .parallax.fullscreen {
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover; }
+
+/* line 70, ../assets/sass/style.sass */
+.onepage_mosaique {
+  background-repeat: repeat;
+  background-position: 50% 0; }
+
+/* line 74, ../assets/sass/style.sass */
+.onepage_center {
+  background-repeat: no-repeat;
+  background-position: 50% 50%; }
+
+/* line 78, ../assets/sass/style.sass */
+.onepage_fullwidth {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% auto; }
+
+/* line 83, ../assets/sass/style.sass */
+.onepage_fullscreen {
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover; }
 
 /* $Style */
-/* line 70, ../assets/sass/style.sass */
+/* line 90, ../assets/sass/style.sass */
 body {
   background: #ffffff; }
 
-/* line 74, ../assets/sass/style.sass */
+/* line 94, ../assets/sass/style.sass */
 blockquote {
   position: relative;
   font-style: italic;

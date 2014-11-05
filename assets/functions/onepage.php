@@ -112,7 +112,7 @@ function cmb2_sample_metaboxes( array $meta_boxes ) {
             ),
             array(
                 'name'    => __( 'Scroll Speed', 'cmb2' ),
-                'desc'    => __( 'Vitesse de scroll pou l\'effet parallax', 'cmb2' ),
+                'desc'    => __( 'Vitesse de scroll pour l\'effet parallax', 'cmb2' ),
                 'id'      => $prefix . 'speed',
                 'type'    => 'select',
                 'options' => array(
@@ -140,13 +140,25 @@ function cmb2_sample_metaboxes( array $meta_boxes ) {
                 'type' => 'file',
             ),
             array(
-                'name'    => __( 'Affichage Img', 'cmb2' ),
-                'desc'    => __( 'Affichage de l\'image', 'cmb2' ),
+                'name'    => __( 'Affichage parallax', 'cmb2' ),
+                'desc'    => __( 'Affichage de l\'image pour l\'effet parallax', 'cmb2' ),
                 'id'      => $prefix . 'fullscreen',
                 'type'    => 'select',
                 'options' => array(
                     'standard' => __( 'Standard', 'cmb2' ),
                     'fullscreen'   => __( 'Plein écran', 'cmb2' )
+                ),
+            ),
+            array(
+                'name'    => __( 'Affichage Standard', 'cmb2' ),
+                'desc'    => __( 'Affichage de l\'image sans l\'effet parallax', 'cmb2' ),
+                'id'      => $prefix . 'img_standard',
+                'type'    => 'select',
+                'options' => array(
+                    'center' => __( 'Centrer', 'cmb2' ),
+                    'fullscreen'   => __( 'Plein écran', 'cmb2' ),
+                    'fullwidth'   => __( 'Pleine largeur', 'cmb2' ),
+                    'mosaique'   => __( 'Mosaique', 'cmb2' )
                 ),
             ),
         ),

@@ -41,8 +41,8 @@ gulp.task('coffee', function() {
 gulp.task('jsfp', function() {
 	return gulp.src([
 		'assets/ext_libs/jQuery-Parallax/scripts/jquery.parallax-1.1.3.js',
-		'assets/ext_libs/jQuery-Parallax/scripts/jquery.localscroll-1.2.7-min.js',
-		'assets/ext_libs/jQuery-Parallax/scripts/jquery.scrollTo-1.4.2-min.js',
+		'assets/ext_libs/jquery.localScroll/jquery.localScroll.js',
+		'assets/ext_libs/jquery.scrollTo/jquery.scrollTo.js',
 	])
 		.pipe(plumber())
 		.pipe(concat('app.min.js'))

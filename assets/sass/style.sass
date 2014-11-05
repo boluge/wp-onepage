@@ -64,6 +64,26 @@ $blanc: #ffffff
 	background-attachment: fixed
 	background-size: 100% auto
 	min-height: 100%
+	&.fullscreen
+		@include background-size(cover)
+
+.onepage_mosaique
+	background-repeat: repeat
+	background-position: 50% 0
+
+.onepage_center
+	background-repeat: no-repeat
+	background-position: 50% 50%
+
+.onepage_fullwidth
+	background-repeat: no-repeat
+	background-position: center center
+	background-size: 100% auto
+
+.onepage_fullscreen
+	background-repeat: no-repeat
+	background-position: 50% 0
+	@include background-size(cover)
 
 /* $Style
 // -------------------------------------*/
