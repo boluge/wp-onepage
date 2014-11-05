@@ -110,11 +110,44 @@ function cmb2_sample_metaboxes( array $meta_boxes ) {
                     'parallax'   => __( 'Parallax', 'cmb2' )
                 ),
             ),
-             array(
+            array(
+                'name'    => __( 'Scroll Speed', 'cmb2' ),
+                'desc'    => __( 'Vitesse de scroll pou l\'effet parallax', 'cmb2' ),
+                'id'      => $prefix . 'speed',
+                'type'    => 'select',
+                'options' => array(
+                    '0.1' => __( '0.1', 'cmb2' ),
+                    '0.2' => __( '0.2', 'cmb2' ),
+                    '0.3' => __( '0.3', 'cmb2' ),
+                    '0.4' => __( '0.4', 'cmb2' ),
+                    '0.5' => __( '0.5', 'cmb2' ),
+                    '0.6' => __( '0.6', 'cmb2' ),
+                    '0.7' => __( '0.7', 'cmb2' ),
+                    '0.8' => __( '0.8', 'cmb2' ),
+                    '0.9' => __( '0.9', 'cmb2' ),
+                    '1.0' => __( '1.0', 'cmb2' ),
+                    '1.1' => __( '1.1', 'cmb2' ),
+                    '1.2' => __( '1.2', 'cmb2' ),
+                    '1.3' => __( '1.3', 'cmb2' ),
+                    '1.4' => __( '1.4', 'cmb2' ),
+                    '1.5' => __( '1.5', 'cmb2' ),
+                ),
+            ),
+            array(
                 'name' => __( 'Background URL', 'cmb2' ),
                 'desc'    => __( 'Image d\'arrière plan de la section', 'cmb2' ),
                 'id'   => $prefix . 'url_bg',
                 'type' => 'file',
+            ),
+            array(
+                'name'    => __( 'Affichage Img', 'cmb2' ),
+                'desc'    => __( 'Affichage de l\'image', 'cmb2' ),
+                'id'      => $prefix . 'fullscreen',
+                'type'    => 'select',
+                'options' => array(
+                    'standard' => __( 'Standard', 'cmb2' ),
+                    'fullscreen'   => __( 'Plein écran', 'cmb2' )
+                ),
             ),
         ),
     );

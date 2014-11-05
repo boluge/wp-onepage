@@ -33,7 +33,12 @@
 	?>
 
 		<?php if ( $page_type == 'standard' ): ?>
-			<section class="onepage_page" style="background-color: <?php echo $bg_color ?>;">
+			<?php if (empty($bg_img)): ?>
+				<section class="onepage_page" style="background-color: <?php echo $bg_color ?>;">
+			<?php else: ?>
+				<section class="onepage_img onepage_page <?php echo $img_fullscreen; ?>" style="background-color: <?php echo $bg_color ?>; background-image:url('<?php if(isset($bg_img)) echo $bg_img;?>');">
+			<?php endif; ?>
+
 				<div class="container">
 					<?php if($no_title != 'on'): ?>
 						<?php if($alt_title): ?>
@@ -55,7 +60,7 @@
 			<?php
 				list($width, $height, $type, $attr) = getimagesize($bg_img);
 			?>
-			<section data-img-width="<?php echo $width; ?>" data-img-height="<?php echo $height; ?>" id="page<?php echo $post->ID; ?>" class="parallax parallax-image onepage_page" style="background-color: <?php echo $bg_color ?>; background-image:url('<?php if(isset($bg_img)) echo $bg_img;?>');">
+			<section data-img-width="<?php echo $width; ?>" data-img-height="<?php echo $height; ?>" id="page<?php echo $post->ID; ?>" class="parallax onepage_page <?php echo $img_fullscreen; ?>" style="background-color: <?php echo $bg_color ?>; background-image:url('<?php if(isset($bg_img)) echo $bg_img;?>');">
 				<div class="container">
 					<?php if($no_title != 'on'): ?>
 						<?php if($alt_title): ?>
