@@ -20,5 +20,8 @@
     "jquery-cookie": "~1.4.1",
     "bourbon": "~4.0.2",
     "normalize.css": "~3.0.1"
+  },
+  "devDependencies": {
+    "jQuery-Parallax": "https://github.com/IanLunn/jQuery-Parallax.git"
   }
 }
