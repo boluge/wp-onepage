@@ -20,7 +20,7 @@
 	// Tableau qui va stocker les id des section qui utilisent l'effets parallax
 	$parallaxId = array();
 	$numPage= 0;
-	$nbPages = count( $pages->posts )+1;
+	$nbPages = count( $pages->posts );
 
 	// echo '<pre>';
 	// 	print_r($pages);
@@ -48,12 +48,14 @@
 
 		$numPage++;
 
-		$currentPage = $post->menu_order -1;
+		$currentPage = $post->menu_order;
+
 		if ($numPage != 1) {
-			$navTop = $pages->posts[$currentPage-1]->post_name;
+			$navTop = $pages->posts[$currentPage-2]->post_name;
 		}
-		if ($numPage != $nbPages) {
-			$navBottom = $pages->posts[$currentPage+1]->post_name;
+
+		if ($currentPage < $nbPages) {
+			$navBottom = $pages->posts[$currentPage]->post_name;
 		}
 	?>
 
